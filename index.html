@@ -78,7 +78,7 @@ const PROGRESS={};const COMMENTS={};
 const VARIANTS={"1.1": ["all"], "1.2": ["all"], "7.2": ["all"], "7.3": ["all"], "7.4": ["all"]};
 const PAGES={"1.1": ["lesson", "hw"], "1.2": ["lesson", "hw"], "7.2": ["lesson", "hw", "extra", "games"], "7.3": ["lesson", "hw", "extra", "games"], "7.4": ["present"]};  // pages ready per lesson in the template; missing → all three  // which track versions exist; missing → "all"             // filled from Supabase: {"1.1":"done","1.2":"progress"}
 let track=(STUDENT&&STUDENT.track)||"all";
-const path=(n,t,f)=>`lessons/${n.replace(".","-").toLowerCase()}/${t}/${f}.html?v=202611201727`;
+const path=(n,t,f)=>`lessons/${n.replace(".","-").toLowerCase()}/${t}/${f}.html?v=202611211120`;
 function render(){
  const box=document.getElementById("units");box.innerHTML="";let tot=0,done=0;
  DATA.units.forEach(([u,title,ls])=>{
@@ -88,7 +88,7 @@ function render(){
    tot++;const pr=PROGRESS[n]||"none";if(pr==="done"){done++;ud++}
    const A=ASSIGNED&&ASSIGNED[n];let tr=A?(A.track||A):track;const PG=(A&&A.pages)||PAGES[n]||["lesson","hw","extra"];if(!(VARIANTS[n]||["all"]).includes(tr))tr="all";const ready=st==="ready";
    const ws=n.startsWith("W")||t.startsWith("Business workshop");
-   const NM={flip:"🏠 Before class",lesson:"Lesson",hw:"Homework",extra:"Extra",games:"Speaking & Games",present:"🎤 Presentation kit"};
+   const NM={flip:"🏠 Before class",lesson:"Lesson",hw:"Homework",extra:"Extra",games:"Speaking & Games",present:"🎤 Presentation kit",speak:"💼 Speaking: business situations"};
    const L3=(t2,lab)=>`<div class="links">${lab?`<span class="vl">${lab}</span>`:""}${PG.map(p=>`<a href="${path(n,t2,p)}">${NM[p]}</a>`).join("")}</div>`;
    const open=ready&&(!ASSIGNED||A);
    const links=open?(cl?L3(tr,"Updated")+L3(tr+"-classic","Classic"):L3(tr,""))+`
