@@ -92,4 +92,4 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.query
 $("submit").onclick=async()=>{submitted=true;await save();$("done").style.display="block"};
 function say1(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=.85;const v=speechSynthesis.getVoices().find(x=>/^en/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 start();
-</script></body></html>
+</script><script src="https://villevian.github.io/bp-admin/vocab-kit.js" defer></script></body></html>
